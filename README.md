@@ -25,37 +25,53 @@ Each D flip-flop in the circuit has a Data (D) input, a Clock (CLK) input, and a
 
 **Procedure**
 
-/* write all the steps invloved */
+1.Initialize the shift register to a known state (e.g., all zeros).
 
-**PROGRAM**<br>
-module exp10(clk, sin, q);<br>
-input clk;<br>
-input sin;<br>
-output [3:0] q;<br>
-reg [3:0] q;<br>
-always @(posedge clk)<br>
-begin<br>
-q[0] <= sin;<br>
-q[1] <= q[0];<br>
-q[2] <= q[1];<br>
-q[3] <= q[2];<br>
-end<br>
-endmodule<br>
+2.Input a bit serially into the shift register.
+
+3.Shift the contents of the register one position to the right (or left).
+
+4.Output the shifted bit from the last stage of the register.
+
+5.Repeat steps 2-4 for each bit you want to input and shift.
+
+
+**PROGRAM**
 
 /* Program for flipflops and verify its truth table in quartus using Verilog programming.
+```
+module EXP10(clk, sin, q);
+input clk;
+input sin;
+output [3:0] q;
+reg [3:0] q;
+always @(posedge clk)
+begin
+q[0] <= sin;
+q[1] <= q[0];
+q[2] <= q[1];
+q[3] <= q[2];
+end
+endmodule
+```
 
-Developed by:Esakkindhar A
-
-RegisterNumber:24001907
-
-*/
-
-**RTL LOGIC FOR SISO Shift Register**<br>
-![398096500-bb79f780-cd2d-464a-bff4-8c5a42cbdd35](https://github.com/user-attachments/assets/96cb2da3-ba38-4001-9b10-5aefdb4039cb)
+Developed by: Esakkindhar A
+RegisterNumber: 24001907
 
 
-**TIMING DIGRAMS FOR SISO Shift Register**<br>
-![398096700-cb1bb1be-6548-4dd2-abb1-77802acb3618](https://github.com/user-attachments/assets/837d8399-f7b4-42d2-80ae-35a7c2c3c792)
 
-**RESULTS**<br>
-To implement SISO Shift Register using verilog and validating their functionality using their functional tables is verified successfully.
+**RTL LOGIC FOR SISO Shift Register**
+
+
+![325265152-6f66cfa2-6386-48ab-a653-584e12bb2882](https://github.com/23008859/SERIAL-IN-SERIAL-OUT-SHIFTREGISTER/assets/139117979/29888224-029c-4ff0-97c3-705ecdbefacc)
+
+
+**TIMING DIGRAMS FOR SISO Shift Register**
+
+
+![325265215-c9dadec7-4969-4bf2-8327-5e5f11fd62a0](https://github.com/23008859/SERIAL-IN-SERIAL-OUT-SHIFTREGISTER/assets/139117979/cd216b4e-0e9a-4790-845e-c5b5c404bc4a)
+
+
+**RESULTS**
+
+SISO Shift Register using verilog and validating their functionality using their functional tables has successful execution of the program.
